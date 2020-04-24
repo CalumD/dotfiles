@@ -26,8 +26,6 @@ alias ll='ls -lha'                                             # Shortcut for de
 alias dns='sshpi cat /etc/pihole/custom-hosts.list | grep $1'  # Search home network DNS table for given input
 alias h='history 0 | grep $1'                                  # Search command history for given input
 alias d='docker '                                              # Short for docker
-alias db='d build -t agentclum/$1 .'                           # Build the docker image in the current working dir
-alias dr='d run --name $1 agentclum/$1'                        # Run the just built docker image
 alias drmi='d rmi '                                            # Removing docker images
 alias drm='d rm '                                              # Removing docker containers
 alias dls='d ps -a && echo "\nImages:" && d images'            # Listing docker containers and images
@@ -76,3 +74,12 @@ f() {
     find . -name "*$1*"
 }
 
+# Docker build the given container name
+db() {
+    d build -t agentclum/$1 ${@:2} .
+}
+
+# Run the given docker container
+dr() {
+    d run --name $1 ${@:2} agentclum/$1
+}
