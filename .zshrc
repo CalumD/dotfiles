@@ -83,3 +83,10 @@ db() {
 dr() {
     d run --name $1 ${@:2} agentclum/$1
 }
+
+# Used by brew to update the currently active jdk
+jdk() {
+    version=$1
+    export JAVA_HOME=$(/usr/libexec/java_home -v"$version");
+    java --version
+}
