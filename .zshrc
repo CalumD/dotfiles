@@ -24,11 +24,13 @@ alias ....='cd ../../../'                                      # Go back 3 dirs
 alias update='brew update && sleep 3 && brew upgrade'          # Update homebrew
 alias ll='ls -lha'                                             # Shortcut for detailed ls
 alias dns='sshpi cat /etc/pihole/custom-hosts.list | grep $1'  # Search home network DNS table for given input
+alias blocklist='sshpi pihole -q $1'			    # Find which pihole list a given domain is blocked
 alias h='history 0 | grep $1'                                  # Search command history for given input
 alias d='docker '                                              # Short for docker
 alias drmi='d rmi '                                            # Removing docker images
 alias drm='d rm '                                              # Removing docker containers
 alias dls='d ps -a && echo "\nImages:" && d images'            # Listing docker containers and images
+alias dbx='d buildx build --platform linux/arm64/v8,linux/arm/v7,linux/amd64 ' # the prefix for a multi architecture docker container build command (must follow with --tag)
 
 
 # SSH hosts
